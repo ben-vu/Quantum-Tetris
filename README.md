@@ -1,85 +1,71 @@
-🎮 Quantum Tetris
-Quantum Tetris is a browser-based twist on the classic game of Tetris, enhanced with real quantum randomness and quantum algorithms. It integrates Quokka, a cloud quantum simulator, to introduce unpredictable gameplay dynamics through QRNG, Grover's algorithm, and Quantum Phase Estimation.
 
-🧠 Key Features
-Quantum Random Number Generation (QRNG)
-Uses a 6-qubit Hadamard circuit to randomly collapse states from 0 to 63.
+# Quantum Tetris
 
-Grover’s Algorithm for Speed Boosts
-Grover-based oracle circuits are used to determine if the player should experience a slowdown or speed boost during gameplay.
+Quantum Tetris is a browser-based Tetris game enhanced with real quantum randomness and quantum algorithms for gameplay dynamics. It leverages Qiskit and Quokka (a cloud-based quantum simulator) to introduce quantum randomness into piece selection and dynamic speed control using Grover's algorithm and Quantum Phase Estimation (QPE).
 
-Quantum Phase Estimation (QPE)
-Offers fine-grained control over game speed using estimated quantum phases.
+## 🚀 Features
 
-Real-Time Quantum-Classical Interaction
-Communication between Python and JavaScript is managed via Jupyter kernel's Comm bridge.
+- **Quantum Piece Selection**: Uses a 6-qubit quantum circuit to randomly select Tetris pieces with true quantum randomness.
+- **Quantum Speed Control**:
+  - **Grover's Algorithm**: Applies Grover's search to determine a probabilistic speed multiplier between 0.5× and 2.0×.
+  - **Quantum Phase Estimation (QPE)**: Offers more precise control over the speed using estimated quantum phases.
+- **Interactive Frontend**: Rendered in-browser with controls and speed visualization.
+- **Hybrid Backend**: JavaScript frontend communicates with Python via Jupyter Comm channels.
 
-📦 Dependencies
-To run the game, you need:
+## 🧠 Requirements
 
-Python 3.x
+- Python 3.x
+- Jupyter Notebook or JupyterLab
+- Installed Python packages:
+  ```bash
+  pip install qiskit numpy requests
+  ```
+- Internet connection (to access Quokka quantum simulator)
 
-Jupyter Notebook / JupyterLab
+## ⚙️ How It Works
 
-Qiskit
+1. **Quantum Random Number Generator (QRNG)**:
+   - A 6-qubit Hadamard circuit produces random numbers between 0–63.
+2. **Grover-based Speed Feature**:
+   - Marks 1–2 states randomly and applies Grover's algorithm to search.
+   - Result determines game speed.
+3. **Quantum Phase Estimation (QPE)**:
+   - Controlled rotations derive a quantum phase for fine-grained speed control.
+4. **Comm Messaging**:
+   - JavaScript sends requests to Python for either piece selection or speed change.
+   - Python returns results through Comm channels.
 
-Quokka-compatible backend (default is quokka3.quokkacomputing.com)
+## 🎮 Controls
 
-Install Qiskit using:
+| Key       | Action             |
+|-----------|--------------------|
+| A / ←     | Move Left          |
+| D / →     | Move Right         |
+| S / ↓     | Soft Drop          |
+| W / ↑     | Rotate             |
+| Space     | Hard Drop          |
+| P         | Pause              |
+| Q         | Quantum Speed Boost|
+| O         | Start Game         |
 
-pip install qiskit
+## 🧪 Quantum Integration Demo
 
+When running inside Jupyter, click the **QUANTUM SPEED** button to trigger real-time quantum logic for adjusting game speed.
 
-🚀 How to Play
-Launch the game in a Jupyter Notebook.
+If no kernel is found, the game falls back to standard pseudo-random behavior.
 
-Press O to start the game.
+## 📁 File Structure
 
-Use classic Tetris controls to move and rotate pieces:
+- `main.ipynb`: Python + JS hybrid notebook that contains the full game logic.
+- `quantum_engine.py`: (Optional) Contains helper functions for quantum logic.
+- `README.md`: You're reading it.
 
-A / ← : Move Left  
-D / → : Move Right  
-S / ↓ : Soft Drop  
-W / ↑ : Rotate  
-Space : Hard Drop  
-P     : Pause  
-Q     : Quantum Speed (Grover/QPE)  
-O     : Start Game
+## 📬 Notes
 
-Click the QUANTUM SPEED button or press Q to trigger quantum-based speed adjustments.
+- Requires a kernel running Python in a Jupyter environment.
+- Communication with Quokka is done over HTTP (self-signed certs are ignored).
+- Use responsibly and enjoy the quantum twist on a classic game!
 
-⚛️ Quantum Mechanics in the Game
-Feature	Circuit Used	Effect on Game
-Piece Collapse	6-qubit Hadamard ladder	Selects next tetromino using true QRNG
-Speed Boost	Grover's algorithm with custom oracle	Increases or decreases speed dynamically
-Precision Speed	Quantum Phase Estimation (QPE)	Maps phase to a precise speed multiplier
+---
 
-🌐 Quokka Integration
-Quantum circuits are transpiled to OpenQASM 3 and executed remotely using Quokka:
-send_to_quokka(dumps(circuit), count=1)
-
-🧩 File Structure (Core Components)
-qrng_0_to_63(): Generates a number from 0–63 using quantum measurement.
-
-run_grover_speed_algorithm(): Marks target states to determine speed-up or slow-down.
-
-qpe_speed_control(): Uses phase estimation to determine a fine-tuned speed factor.
-
-comm.on_msg: Handles interaction between JS and Python kernel.
-
-🖥️ UI Features
-Real-time canvas-based game board
-
-Dynamic speed bar visualization
-
-Live score and quantum state display
-
-Responsive controls for keyboard and quantum input
-
-❗ Notes
-If a Jupyter kernel is not available, the game falls back to classical randomness.
-
-All communication with Quokka disables SSL verification (verify=False); avoid this in production environments.
-
-📜 License
-MIT License. Use at your own risk. Have fun experimenting with quantum-enhanced gameplay!
+© 2025 Quantum Tetris Team
