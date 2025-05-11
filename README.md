@@ -68,4 +68,4 @@ If no kernel is found, the game falls back to standard pseudo-random behavior.
 
 ---
 
-© 2025 Quantum Tetris Team
+© 2025 Benjamin Vu
