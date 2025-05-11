@@ -50,7 +50,7 @@ Quantum Tetris is a browser-based Tetris game enhanced with real quantum randomn
 
 ## 🧪 Quantum Integration Demo
 
-When running inside Jupyter, click the **QUANTUM SPEED** button to trigger real-time quantum logic for adjusting game speed.
+When running inside Jupyter / Colab, click the **QUANTUM SPEED** button to trigger real-time quantum logic for adjusting game speed.
 
 If no kernel is found, the game falls back to standard pseudo-random behavior.
 
