@@ -65,7 +65,3 @@ If no kernel is found, the game falls back to standard pseudo-random behavior.
 - Requires a kernel running Python in a Jupyter environment.
 - Communication with Quokka is done over HTTP (self-signed certs are ignored).
 - Use responsibly and enjoy the quantum twist on a classic game!
-
----
-
-© 2025 Benjamin Vu
