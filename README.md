@@ -9,7 +9,7 @@ Quantum Tetris is a browser-based Tetris game enhanced with real quantum randomn
 - **Quantum Speed Control**:
   - **Grover's Algorithm**: Applies Grover's search to determine a probabilistic speed multiplier between 0.5× and 2.0×.
   - **Quantum Phase Estimation (QPE)**: Offers more precise control over the speed using estimated quantum phases.
-- **Interactive Frontend**: Rendered in-browser with controls and speed visualization.
+- **Interactive Frontend**: Rendered in-browser with controls and speed visualisation.
 - **Hybrid Backend**: JavaScript frontend communicates with Python via Jupyter Comm channels.
 
 ## 🧠 Requirements
